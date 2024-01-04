@@ -1,0 +1,20 @@
+{
+  "name": "age-calculator-app-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Age calculator app coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  
+  "scripts": {
+    "start": "tailwindcss -i ./build/css/tailwind.css -o ./css/styles.css --watch --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/jit": "^0.1.18",
+    "autoprefix": "^1.0.1",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^2.2.19"
+  }
+}
