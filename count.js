@@ -7,6 +7,7 @@ isian.addEventListener("submit", (e) => {
 let inputDate = document.getElementById('dayinput').value;
 let inputMonth = document.getElementById('monthinput').value;
 let inputYear = document.getElementById('yearinput').value;
+let leapYear = false;
 
 // Create a new Date object
 const currentDate = new Date();
@@ -126,5 +127,17 @@ switch(inputYear == currentYear){
         break;
 }
     
+//leapYear validation
+switch (true) {
+    case (inputYear % 400 == 0):
+        leapYear = true;
+        break;
+    case ((inputYear % 4 == 0) && (inputYear % 100 != 0)):
+        leapYear = true;
+        break;
+    
+}
+
+console.log(leapYear)
 
 })
