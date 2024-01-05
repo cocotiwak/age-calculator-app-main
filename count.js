@@ -19,8 +19,22 @@ console.log("Current Year:", currentYear);
 console.log('Current Date:', currentDate);
 
 
-//validation
-//check empty value
+// Get the current month (zero-based index)
+const currentMonthIndex = currentDate.getMonth();
+
+// Get the current month as a number starting from 1
+const currentMonthNumber = currentMonthIndex + 1;
+
+// Log the current month to the console
+console.log("Current Month:", currentMonthNumber);
+
+// Get current date
+const nowDate=currentDate.getDate();
+console.log('Current Date:', nowDate);
+
+
+
+//add styling
 function red(id){
     let merah = document.getElementById(id);
     merah.style.color = 'red';
@@ -42,7 +56,7 @@ function resetMessageError(id){
 }
 
 
-console.log(inputDate);
+
 //Date validation
 switch (true){
     case (inputDate == ""):
@@ -101,28 +115,16 @@ switch (true){
         break;
 
 }    
+
+
+switch(inputYear == currentYear){
+    case (inputMonth > currentMonthNumber):
+        alert('Error: Date in the Future');
+        break;
+    case (inputDate > nowDate):
+        alert('Error: Date in the Future');
+        break;
+}
     
-
-
-
-/* if(tanggal.value == ""){
-    red('hari');
-    messageError('alertday','This field is required');
-}
-
-if(bulan.value == ""){
-    red('bulan')
-    messageError('alertmonth','This field is required');
-}
-
-if(tahun.value == ""){
-    red('tahun');
-    messageError('alertyear','This field is required');
-}*/
-
-
-
-
-
 
 })
