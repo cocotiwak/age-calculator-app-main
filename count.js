@@ -9,6 +9,22 @@ let inputMonth = document.getElementById('monthinput').value;
 let inputYear = document.getElementById('yearinput').value;
 let leapYear = false;
 
+const dayOfMonth = {
+    1 : 30,
+    2 : 28,
+    3: 31,
+    4: 30,
+    5: 31,
+    6: 30,
+    7: 31,
+    8: 31,
+    9: 30,
+    10: 31,
+    11 : 30,
+    12: 31
+}
+
+
 // Create a new Date object
 const currentDate = new Date();
 
@@ -56,6 +72,30 @@ function resetMessageError(id){
     msgErr.textContent='';
 }
 
+//is date it the future ?
+switch(inputYear == currentYear){
+    case (inputMonth > currentMonthNumber):
+        alert('Error: Date in the Future');
+        break;
+    case (inputDate > nowDate):
+        alert('Error: Date in the Future');
+        break;
+}
+
+//leapYear check
+switch (inputYear != "") {
+    case (inputYear % 400 == 0):
+        leapYear = true;
+        dayOfMonth[2] = 29;
+        break;
+    case ((inputYear % 4 == 0) && (inputYear % 100 != 0)):
+        leapYear = true;
+        dayOfMonth[2] = 29;
+        break;
+    
+}
+
+
 
 
 //Date validation
@@ -70,6 +110,9 @@ switch (true){
     case Number(inputDate) > 31:
         red('hari');
         messageError('alertday','Must be a valid Day');
+        break;
+    case (inputDate > dayOfMonth[inputMonth]):
+        alert('date not valid');
         break;
     default:
         resetRed('hari');
@@ -117,27 +160,5 @@ switch (true){
 
 }    
 
-
-switch(inputYear == currentYear){
-    case (inputMonth > currentMonthNumber):
-        alert('Error: Date in the Future');
-        break;
-    case (inputDate > nowDate):
-        alert('Error: Date in the Future');
-        break;
-}
-    
-//leapYear validation
-switch (true) {
-    case (inputYear % 400 == 0):
-        leapYear = true;
-        break;
-    case ((inputYear % 4 == 0) && (inputYear % 100 != 0)):
-        leapYear = true;
-        break;
-    
-}
-
-console.log(leapYear)
 
 })
