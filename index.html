@@ -19,62 +19,77 @@
 			href="./assets/images/favicon-32x32.png"
 			type="image/x-icon"
 		/>
+
 		<title>Age calculator</title>
 	</head>
 	<body class="bg-Off-white px-[5%] font-display">
-		<main class="flex min-w-[90%] bg-white mt-[10%] flex-col">
-			<div class="flex justify-center">
-				<div
-					class="flex text-Smokey-grey text-xs gap-5 p-5 flex-row border-b-2 w-[80%] justify-center pb-10"
-				>
-					<div>
-						<p class="text-[10px]">DAY</p>
-						<input
-							type="text"
-							placeholder="DD"
-							class="font-display text-sm border-2 border-Light-grey rounded-md p-2"
-							maxlength="2"
-							size="1"
-							id="day"
-							required
-						/>
-					</div>
-					<div>
-						<p class="text-[10px]">MONTH</p>
-						<input
-							type="text"
-							placeholder="MM"
-							class="font-display text-sm border-2 border-Light-grey rounded-md p-2"
-							maxlength="2"
-							size="1"
-							id="month"
-							required
-						/>
-					</div>
-					<div>
-						<p class="text-[10px]">YEAR</p>
-						<input
-							type="text"
-							placeholder="YYYY"
-							class="font-display text-sm border-2 border-Light-grey rounded-md p-2"
-							maxlength="4"
-							size="1"
-							id="day"
-							required
-						/>
+		<main class="flex min-w-[90%] bg-white mt-[10%] flex-col pb-10">
+			<form action="" id="formisi">
+				<div class="flex justify-center">
+					<div
+						class="flex text-Smokey-grey text-xs gap-5 p-5 flex-row border-b-2 w-[80%] justify-center pb-10"
+					>
+						<div>
+							<p class="text-[10px]" id="hari">DAY</p>
+							<input
+								type="text"
+								placeholder="DD"
+								class="font-display text-sm border-2 border-Light-grey rounded-md p-2"
+								maxlength="2"
+								size="1"
+								id="dayinput"
+							/>
+							<p
+								class="text-[10px] italic text-red-600"
+								style="font-style: italic"
+								id="alertday"
+							></p>
+						</div>
+						<div>
+							<p class="text-[10px]" id="bulan">MONTH</p>
+							<input
+								type="text"
+								placeholder="MM"
+								class="font-display text-sm border-2 border-Light-grey rounded-md p-2"
+								maxlength="2"
+								size="1"
+								id="monthinput"
+							/>
+							<p
+								class="text-[10px] italic text-red-600"
+								style="font-style: italic"
+								id="alertmonth"
+							></p>
+						</div>
+						<div>
+							<p class="text-[10px]" id="tahun">YEAR</p>
+							<input
+								type="text"
+								placeholder="YYYY"
+								class="font-display text-sm border-2 border-Light-grey rounded-md p-2"
+								maxlength="4"
+								size="1"
+								id="yearinput"
+							/>
+							<p
+								class="text-[10px] italic text-red-600"
+								style="font-style: italic"
+								id="alertyear"
+							></p>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="flex justify-center mt-[-20px]">
-				<button
-					class="w-[50px] h-[50px] bg-Purple flex items-center justify-center rounded-full"
-					type="button"
-					id="btn"
-				>
-					<img src="./assets/images/icon-arrow.svg" alt="" class="w-[25px]" />
-				</button>
-			</div>
+				<div class="flex justify-center mt-[-20px]">
+					<button
+						class="w-[50px] h-[50px] bg-Purple flex items-center justify-center rounded-full"
+						type="submit"
+						id="btn"
+					>
+						<img src="./assets/images/icon-arrow.svg" alt="" class="w-[25px]" />
+					</button>
+				</div>
+			</form>
 		</main>
 		<div class="attribution">
 			Challenge by
@@ -82,5 +97,6 @@
 				>Frontend Mentor</a
 			>. Coded by <a href="https://twitter.com/kenyaldanbulat">danoe</a>.
 		</div>
+		<script src="./count.js"></script>
 	</body>
 </html>
