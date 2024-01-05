@@ -22,14 +22,14 @@
 
 		<title>Age calculator</title>
 	</head>
-	<body class="bg-Off-white px-[5%] font-display">
+	<body class="bg-Off-white px-[5%] font-display md:px-[30%] md:py-[9%]">
 		<main
-			class="flex min-w-[90%] bg-white mt-[10%] flex-col pb-10 rounded-t-lg rounded-bl-lg rounded-br-[3rem]"
+			class="flex min-w-[90%] bg-white mt-[10%] flex-col pb-10 rounded-t-lg rounded-bl-lg rounded-br-[3rem] md:gap-10"
 		>
 			<form action="" id="formisi">
-				<div class="flex justify-center">
+				<div class="flex justify-center md:gap-10">
 					<div
-						class="flex text-Smokey-grey text-xs gap-5 p-5 flex-row border-b-2 w-[80%] justify-center pb-10"
+						class="flex text-Smokey-grey text-xs gap-5 p-5 flex-row border-b-2 w-[80%] justify-center pb-10 md:justify-start md:py-10 md:px-0"
 					>
 						<div>
 							<p class="text-[10px]" id="hari">DAY</p>
@@ -82,17 +82,23 @@
 					</div>
 				</div>
 
-				<div class="flex justify-center mt-[-20px]">
+				<div
+					class="flex justify-center mt-[-20px] md:justify-end md:pr-5 md:mt-[-30px]"
+				>
 					<button
-						class="w-[50px] h-[50px] bg-Purple flex items-center justify-center rounded-full"
+						class="w-[50px] h-[50px] bg-Purple flex items-center justify-center rounded-full md:w-[70px] md:h-[70px]"
 						type="submit"
 						id="btn"
 					>
-						<img src="./assets/images/icon-arrow.svg" alt="" class="w-[25px]" />
+						<img
+							src="./assets/images/icon-arrow.svg"
+							alt=""
+							class="w-[25px] md:w-[50px]"
+						/>
 					</button>
 				</div>
 			</form>
-			<div class="ml-5">
+			<div class="ml-5 md:ml-[80px]">
 				<p class="text-[50px] italic font-bold">
 					<span class="text-Purple" id="stripYears">--</span
 					><span
