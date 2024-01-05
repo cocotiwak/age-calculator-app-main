@@ -23,7 +23,9 @@
 		<title>Age calculator</title>
 	</head>
 	<body class="bg-Off-white px-[5%] font-display">
-		<main class="flex min-w-[90%] bg-white mt-[10%] flex-col pb-10">
+		<main
+			class="flex min-w-[90%] bg-white mt-[10%] flex-col pb-10 rounded-t-lg rounded-bl-lg rounded-br-[3rem]"
+		>
 			<form action="" id="formisi">
 				<div class="flex justify-center">
 					<div
@@ -90,8 +92,37 @@
 					</button>
 				</div>
 			</form>
+			<div class="ml-5">
+				<p class="text-[50px] italic font-bold">
+					<span class="text-Purple" id="stripYears">--</span
+					><span
+						class="text-Purple"
+						id="resultYear"
+						style="display: none"
+					></span>
+					years
+				</p>
+				<p class="text-[50px] italic font-bold">
+					<span class="text-Purple" id="stripMonths">--</span>
+					<span
+						class="text-Purple"
+						id="resultMonth"
+						style="display: none"
+					></span>
+					months
+				</p>
+				<p class="text-[50px] italic font-bold">
+					<span class="text-Purple" id="stripDays">--</span
+					><span
+						class="text-Purple"
+						id="resultDay"
+						style="display: none"
+					></span>
+					days
+				</p>
+			</div>
 		</main>
-		<div class="attribution">
+		<div class="attribution mt-10">
 			Challenge by
 			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
 				>Frontend Mentor</a

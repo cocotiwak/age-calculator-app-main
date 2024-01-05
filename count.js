@@ -8,6 +8,14 @@ let inputDate = document.getElementById('dayinput').value;
 let inputMonth = document.getElementById('monthinput').value;
 let inputYear = document.getElementById('yearinput').value;
 let leapYear = false;
+let resultYears = document.getElementById('stripYears');
+let resultMonths = document.getElementById('stripMonths');
+let resultDays = document.getElementById('stripDays');
+let finalYears = document.getElementById('resultYear');
+let finalMonths = document.getElementById('resultMonth');
+let finalDays = document.getElementById('resultDay');
+
+
 
 const dayOfMonth = {
     1 : 30,
@@ -32,8 +40,8 @@ const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 
 // Log the current year to the console
-console.log("Current Year:", currentYear);
-console.log('Current Date:', currentDate);
+//console.log("Current Year:", currentYear);
+//console.log('Current Date:', currentDate);
 
 
 // Get the current month (zero-based index)
@@ -43,11 +51,11 @@ const currentMonthIndex = currentDate.getMonth();
 const currentMonthNumber = currentMonthIndex + 1;
 
 // Log the current month to the console
-console.log("Current Month:", currentMonthNumber);
+//console.log("Current Month:", currentMonthNumber);
 
 // Get current date
 const nowDate=currentDate.getDate();
-console.log('Current Date:', nowDate);
+//console.log('Current Date:', nowDate);
 
 
 
@@ -72,14 +80,27 @@ function resetMessageError(id){
     msgErr.textContent='';
 }
 
+
 //is date it the future ?
-switch(inputYear == currentYear){
-    case (inputMonth > currentMonthNumber):
-        alert('Error: Date in the Future');
-        break;
-    case (inputDate > nowDate):
-        alert('Error: Date in the Future');
-        break;
+function futureDate(){
+if(inputYear == currentYear){
+    if(inputMonth == currentMonthNumber) {
+        if(inputDate > nowDate){
+            red('hari');
+            messageError('alertday','Must be a valid Date');
+            return false;
+        }
+    }
+    if(inputMonth > currentMonthNumber){
+        red('bulan');
+        messageError('alertmonth','Must be a valid Month');
+        return false;
+    } else {
+        return true;
+    }
+} else {
+    return true;
+}
 }
 
 //leapYear check
@@ -99,66 +120,136 @@ switch (inputYear != "") {
 
 
 //Date validation
+function validDate(){
 switch (true){
     case (inputDate == ""):
         resetRed('hari')
         red('hari');
         messageError('alertday','This field is required');
+        return false;
         break;
     case (isNaN(inputDate)):
     case Number(inputDate) <= 0:   
     case Number(inputDate) > 31:
         red('hari');
-        messageError('alertday','Must be a valid Day');
+        messageError('alertday','Must be a valid Date');
+        return false;
         break;
     case (inputDate > dayOfMonth[inputMonth]):
-        alert('date not valid');
+        red('hari');
+        messageError('alertday','Must be a valid Date');
+        return false;
         break;
     default:
         resetRed('hari');
-        resetMessageError('alertday')
-        console.log(' date ok');
+        resetMessageError('alertday');
+        return true;
         break;
-}  
+}  }
     
 //Month validation    
+function validMonth(){
 switch (true){
     case (inputMonth == ""):
             red('bulan');
             messageError('alertmonth','This field is required');
+            return false;
             break;
     case (isNaN(inputMonth)):
     case Number(inputMonth) <= 0:   
     case Number(inputMonth) > 12:
             red('bulan');
             messageError('alertmonth','Must be a valid Month');
+            return false;
             break;
     default:
             resetRed('bulan');
-            resetMessageError('alertmonth')
-            console.log('month ok');
+            resetMessageError('alertmonth');
+            return true;
             break;
-}
+} }
     
 //Year validation
+function validYear(){
 switch (true){
     case (inputYear == ""):
         red('tahun');
         messageError('alertyear','This field is required');
+        return false;
         break;
     case (isNaN(inputYear)):
     case Number(inputYear) <= 0:   
     case Number(inputYear) > currentYear:
         red('tahun');
         messageError('alertyear','Must be a valid Year');
+        return false;
         break;
     default:
         resetRed('tahun');
         resetMessageError('alertyear')
-        console.log('year ok');
+        return true;
         break;
 
-}    
+}    }
+
+futureDate();
+validDate();
+validMonth();
+validYear();
+
+
+
+
+if (futureDate() && validDate() && validMonth() && validYear()){
+    function toArray(angka){
+        let rounded=angka.toFixed(3);
+        let roundedString=rounded.toString();
+        let roundedArray=roundedString.split('.');
+        return roundedArray;
+    }
+
+
+    const parsedDate = new Date(`${inputMonth}-${inputDate}-${inputYear}`);
+    const timeDifference = currentDate - parsedDate;
+    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const yearDifference = daysDifference / 365.25;
+    let tahun = toArray(yearDifference);
+    let bulanMentah=tahun[1]/1000 * 12;
+    let bulan= toArray(bulanMentah);
+    let hariMentah=bulan[1]/1000 * 30;
+    let hari=toArray(hariMentah);
+
+
+    resultYears.style.display= 'none';
+    finalYears.style.display = 'inline';
+    finalYears.textContent=tahun[0];
+
+    resultMonths.style.display= 'none';
+    finalMonths.style.display= 'inline';
+    finalMonths.textContent=bulan[0];
+
+    resultDays.style.display= 'none';
+    finalDays.style.display= 'inline';
+    finalDays.textContent=hari[0];
+
+
+
+
+
+}else {
+    resultYears.style.display='inline';
+    finalYears.style.display ='none';
+
+    resultMonths.style.display='inline';
+    finalMonths.style.display='none';
+
+    resultDays.style.display='inline';
+    finalDays.style.display='none';
+    
+
+
+}
+
 
 
 })
